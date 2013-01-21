@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bugsnag.Library
+namespace Bugsnag.Library.Data
 {
     /// <summary>
     /// Notifier meta data

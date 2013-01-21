@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bugsnag.Library
+namespace Bugsnag.Library.Data
 {
     [DataContract]
     public class ErrorNotification
@@ -37,18 +37,17 @@ namespace Bugsnag.Library
             set;
         }
 
-
         /// <summary>
-        /// An object containing any further data you wish to attach to this error
-        /// event. This should contain one or more objects, with each object being
-        /// displayed in its own tab on the event details on the Bugsnag website.
-        /// (Optional).
+        /// An array of error events that Bugsnag should be notified of. A notifier
+        /// can choose to group notices into an array to minimize network traffic, or
+        /// can notify Bugsnag each time an event occurs. 
         /// </summary>
-        [DataMember(Name="metaData")]
-        public object MetaData
+        [DataMember(Name = "events")]
+        public List<Event> Events
         {
             get;
             set;
         }
+
     }
 }

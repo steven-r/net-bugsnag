@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BugSnag.cs" />
-    <Compile Include="ErrorNotification.cs" />
-    <Compile Include="Notifier.cs" />
+    <Compile Include="Data\ErrorNotification.cs" />
+    <Compile Include="Data\Event.cs" />
+    <Compile Include="Data\Exception.cs" />
+    <Compile Include="Data\Notifier.cs" />
+    <Compile Include="Data\Stacktrace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
