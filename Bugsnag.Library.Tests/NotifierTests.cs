@@ -23,6 +23,9 @@ namespace Bugsnag.Library.Tests
             }
             catch(System.Exception ex)
             {
+                BugSnag bs = new BugSnag();
+                bs.Notify();
+
                 //  Our list of events:
                 List<Event> events = new List<Event>();
 

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Bugsnag.Library")]
+[assembly: AssemblyTitle("Bugsnag.WebTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Bugsnag & Dan Esparza")]
-[assembly: AssemblyProduct("Bugsnag.Library")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("ACME")]
+[assembly: AssemblyProduct("Bugsnag.WebTest")]
+[assembly: AssemblyCopyright("Copyright © ACME 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0e6ba48b-2e93-4c0f-ba65-c6eb3a776212")]
+[assembly: Guid("50a0e080-fff5-42dd-b837-573b63dbeb10")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,8 +29,7 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
