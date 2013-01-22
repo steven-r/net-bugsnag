@@ -8,7 +8,7 @@ For more information about the examples below, you can visit https://bugsnag.com
 Quick Start
 -----------
 
-Add a reference to Bugsnag.Library.dll 
+Add a reference to Bugsnag.Library.dll, or install the NuGet package
 
 Next, you will need to provide .NET BugSnag with your API key.  There are 2 ways to do this:  Choose one.
 
