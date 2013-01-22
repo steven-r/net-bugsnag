@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Bugsnag.Library")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET Bugsnag notifier library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Bugsnag & Dan Esparza")]
+[assembly: AssemblyCompany("Dan Esparza")]
 [assembly: AssemblyProduct("Bugsnag.Library")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
