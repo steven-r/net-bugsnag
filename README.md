@@ -15,5 +15,5 @@ Next, you will need to provide .NET BugSnag with your API key.  There are 2 ways
 a) Add an AppSetting with your api key to your config (this is the easiest way)
 
 	<appSettings>
-		<add key="apiKey" value="[your api key here]" />
+		<add key="BugSnagApiKey" value="[your api key here]" />
 	</appSettings>
