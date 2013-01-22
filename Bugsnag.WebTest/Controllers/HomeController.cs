@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,12 @@ namespace Bugsnag.WebTest.Controllers
     {
         public ActionResult Index()
         {
+            ViewData["APIKeySet"] = false;
+            if(ConfigurationManager.AppSettings["apiKey"] != "YOUR_API_KEY_HERE")
+            {
+                ViewData["APIKeySet"] = true;
+            }
+
             return View();
         }
 

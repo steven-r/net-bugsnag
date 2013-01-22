@@ -23,7 +23,7 @@ namespace Bugsnag.WebTest
         }
 
         //  Added for the BugSnag sample web application
-        protected void ApplicationError(object sender, EventArgs e)
+        protected void Application_Error(object sender, EventArgs e)
         {
             //  Create a new BugSnag notifier
             BugSnag bs = new BugSnag();
