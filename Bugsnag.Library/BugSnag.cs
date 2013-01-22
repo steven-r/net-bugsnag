@@ -55,28 +55,28 @@ namespace Bugsnag.Library
             //  CHECK CONFIGURATION SETTINGS
 
             //  apiKey
-            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["apiKey"]))
+            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["BugSnagApiKey"]))
             {
-                apiKey = ConfigurationManager.AppSettings["apiKey"];
+                apiKey = ConfigurationManager.AppSettings["BugSnagApiKey"];
             }
 
             //  SSL
-            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["useSSL"]))
+            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["BugSnagUseSSL"]))
             {
-                useSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["useSSL"]);
+                useSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["BugSnagUseSSL"]);
             }
 
             //  Release stage
-            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["releaseStage"]))
+            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["BugSnagReleaseStage"]))
             {
-                releaseStage = ConfigurationManager.AppSettings["releaseStage"];
+                releaseStage = ConfigurationManager.AppSettings["BugSnagReleaseStage"];
             }
 
             //  Notify release stages
-            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["notifyReleaseStages"]))
+            if(!string.IsNullOrEmpty(ConfigurationManager.AppSettings["BugSnagNotifyReleaseStages"]))
             {
                 notifyReleaseStages.Clear();
-                notifyReleaseStages.AddRange(ConfigurationManager.AppSettings["notifyReleaseStages"].Split('|'));
+                notifyReleaseStages.AddRange(ConfigurationManager.AppSettings["BugSnagNotifyReleaseStages"].Split('|'));
             }
 
             //  Application version
