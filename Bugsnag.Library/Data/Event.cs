@@ -15,6 +15,11 @@ namespace Bugsnag.Library.Data
     [DataContract]
     public class Event
     {
+        public Event()
+        {
+            Exceptions = new List<Exception>();
+        }
+
         /// <summary>
         /// A unique identifier for a user affected by this event. This could be 
         /// any distinct identifier that makes sense for your application/platform.

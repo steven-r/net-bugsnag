@@ -1,5 +1,6 @@
 ﻿using System;
 using Bugsnag.Library.Data;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceStack.Text;
 using System.Collections.Generic;
@@ -12,13 +13,13 @@ namespace Bugsnag.Library.Tests
     [TestClass]
     public class NotifierTests
     {
-        // [TestMethod]
+        [TestMethod]
         public void TestServiceStackSerialization()
         {
 
             try
             {
-                throw new ArgumentException("This is a test exception");
+                throw new ApplicationException("Throwing an app extension.  You heartless bastard.");
             }
             catch(System.Exception ex)
             {
@@ -29,17 +30,14 @@ namespace Bugsnag.Library.Tests
                 List<Bugsnag.Library.Data.Exception> exceptions = new List<Bugsnag.Library.Data.Exception>();
 
                 //  Our list of stacktrace lines:
-                List<Stacktrace> stacktraces = new List<Stacktrace>();
-
-                //  Add our stacktrace lines:
-                stacktraces.Add(new Stacktrace()
-                    {
-                        File = "currentfile",
-                        InProject = true,
-                        LineNumber = 54,
-                        Method = ex.TargetSite.Name
-                    });
-
+                var stacktraces = (from item in new System.Diagnostics.StackTrace(ex, true).GetFrames()
+                            select new Stacktrace()
+                            {
+                                File = item.GetFileName(),
+                                LineNumber = item.GetFileLineNumber(),
+                                Method = item.GetMethod().Name
+                            }).ToList();
+                  
                 //  Add a new exception:
                 exceptions.Add(new Bugsnag.Library.Data.Exception()
                 {
@@ -53,13 +51,23 @@ namespace Bugsnag.Library.Tests
                 {
                     UserId = "esparza.dan@gmail.com",
                     Context = "TestServiceStackSerialization",
-                    Exceptions = exceptions
+                    Exceptions = exceptions,
+                    ReleaseStage = "Development",
+                    AppVersion = "1.0.1",
+                    ExtraData = new
+                    {
+                        TelleTubby = new
+                        {
+                            color = "Yellow",
+                            mood = "Mellow"
+                        }
+                    }
                 });
 
                 //  Create our error notification:
                 ErrorNotification test = new ErrorNotification()
                 {
-                    Api_Key = "USE_YOUR_API_KEY",
+                    Api_Key = "YOUR_API_KEY",
                     Events = events
                 };
 
