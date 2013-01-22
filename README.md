@@ -1,4 +1,4 @@
-net-bugsnag
+.NET BugSnag
 ===========
 
 .NET Bugsnag is a notifier library for http://bugsnag.com.  It includes support for logging Events, Exceptions, Stacktrace information, and meta information.  
