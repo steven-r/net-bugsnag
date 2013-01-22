@@ -23,8 +23,11 @@ namespace Bugsnag.Library.Tests
             }
             catch(System.Exception ex)
             {
-                BugSnag bs = new BugSnag();
-                bs.apiKey = "YOUR_API_KEY";
+                BugSnag bs = new BugSnag()
+                {
+                    apiKey = "YOUR_API_KEY"
+                };
+
                 bs.Notify(ex, new
                 {
                     OtherReallyCoolData = new
