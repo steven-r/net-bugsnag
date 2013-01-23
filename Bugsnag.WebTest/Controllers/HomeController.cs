@@ -12,7 +12,7 @@ namespace Bugsnag.WebTest.Controllers
         public ActionResult Index()
         {
             ViewData["APIKeySet"] = false;
-            if(ConfigurationManager.AppSettings["apiKey"] != "YOUR_API_KEY_HERE")
+            if(ConfigurationManager.AppSettings["BugSnagApiKey"] != "YOUR_API_KEY_HERE")
             {
                 ViewData["APIKeySet"] = true;
             }

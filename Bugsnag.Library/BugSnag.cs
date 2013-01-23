@@ -306,10 +306,12 @@ namespace Bugsnag.Library
             foreach(System.Exception ex in exList)
             {
                 //  ... Create a list of stacktraces
+                //  This may not be the best way to get this information:
+                //  http://blogs.msdn.com/b/jmstall/archive/2005/03/20/399287.aspx
                 var stacktraces = (from item in new System.Diagnostics.StackTrace(ex, true).GetFrames()
                                    select new Stacktrace()
                                    {
-                                       File = item.GetFileName(),
+                                       File = item.GetFileName() ?? item.GetType().Name ?? "N/A",
                                        LineNumber = item.GetFileLineNumber(),
                                        Method = item.GetMethod().Name
                                    }).ToList();
