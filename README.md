@@ -1,4 +1,4 @@
-.NET BugSnag
+.NET Bugsnag
 ===========
 
 .NET Bugsnag is a notifier library for http://bugsnag.com.  It includes support for logging Events, Exceptions, Stacktrace information, and meta information.  
@@ -36,7 +36,7 @@ If you have a web application, this is the simplest way to add exception logging
 
 	protected void Application_Error(object sender, EventArgs e)
         {
-            //  Create a new BugSnag notifier
+            //  Create a new Bugsnag notifier
             BugSnag bs = new BugSnag();
 
             //  Notify.  This will get configuration from the web.config
