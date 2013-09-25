@@ -163,10 +163,10 @@ namespace Bugsnag.Library
         public void Notify(object extraData)
         {
             //  If we're a web application, we can report errors automagically
-            if(System.Web.HttpContext.Current != null)
+            if(HttpContext.Current != null)
             {
                 //  If we have errors...
-                if(System.Web.HttpContext.Current.AllErrors.Any())
+                if (HttpContext.Current.AllErrors != null && HttpContext.Current.AllErrors.Any())
                 {
                     //  ... go through all of the errors and report them
                     List<Event> events = new List<Event>();
