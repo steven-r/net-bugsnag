@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Bugsnag.Library.Data;
 using ServiceStack.Text;
+using Exception = System.Exception;
 
 namespace Bugsnag.Library
 {
@@ -286,7 +287,7 @@ namespace Bugsnag.Library
         /// <param name="UserId">The userId for the event</param>
         /// <param name="ExtraData">Extra data to annotate on the event</param>
         /// <returns></returns>
-        private Event ProcessExceptions(List<System.Exception> exList, string Context, string UserId, object extraData)
+        private Event ProcessExceptions(IEnumerable<Exception> exList, string Context, string UserId, object extraData)
         {
             //  Create an event to return
             Event retval = new Event()
@@ -300,7 +301,7 @@ namespace Bugsnag.Library
             };
 
             //  Our list of exceptions:
-            List<Bugsnag.Library.Data.Exception> exceptions = new List<Bugsnag.Library.Data.Exception>();
+            List<Data.Exception> exceptions = new List<Data.Exception>();
 
             //  For each exception passed...
             foreach(System.Exception ex in exList)
@@ -317,12 +318,18 @@ namespace Bugsnag.Library
                                    }).ToList();
 
                 //  Add a new exception, and use the stacktrace list:
-                exceptions.Add(new Bugsnag.Library.Data.Exception()
+                exceptions.Add(new Data.Exception()
                 {
                     ErrorClass = ex.TargetSite.Name,
                     Message = ex.Message,
                     Stacktrace = stacktraces
                 });
+
+                // Process and display inner exceptions as well
+                if (ex.InnerException != null)
+                {
+                    ProcessExceptions(new List<Exception> {ex.InnerException}, Context, UserId, extraData);
+                }
             }
 
             //  Set our list of exceptions
